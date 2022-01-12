@@ -1,0 +1,30 @@
+scalar Date
+
+type Query {
+    hello: String!
+    resolve_users: [User]
+    resolve_posts(id: ID): [Post]
+}
+
+type Mutation {
+    create_user(input: UserInput): User!
+    create_post(input: PostInput): Post!
+    
+}
+input UserInput {
+    name: String
+    username: String
+}
+input PostInput {
+    content: String!
+    author: ID!
+}
+
+type User {
+    id: ID
+    username: String
+    name: String!
+    created: Date
+}
+
+
